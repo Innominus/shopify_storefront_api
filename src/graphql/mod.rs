@@ -24,7 +24,7 @@ where
     let client = reqwest::Client::new();
     let mut headers = reqwest::header::HeaderMap::new();
     headers.insert("Content-Type", "application/json".parse().unwrap());
-    headers.insert("X-Shopify-Access-Token", shopify.api_key.parse().unwrap());
+    headers.insert("X-Shopify-Storefront-Access-Token", shopify.api_key.parse().unwrap());
     let req_body: &serde_json::Value = &serde_json::json!({
         "query": graphql_query,
         "variables": variables
@@ -141,7 +141,7 @@ impl Shopify {
     ) -> Result<GraphQLResponse<Q::ResponseData>, reqwest::Error> {
         let mut headers = reqwest::header::HeaderMap::new();
         headers.insert("Content-Type", "application/json".parse().unwrap());
-        headers.insert("X-Shopify-Access-Token", self.api_key.parse().unwrap());
+        headers.insert("X-Shopify-Storefront-Access-Token", self.api_key.parse().unwrap());
 
         // TODO: put the client in the struct to avoid creating it every time
         let client = Client::builder()

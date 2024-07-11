@@ -34,7 +34,7 @@ where
     let client = reqwest::Client::new();
     let mut headers = reqwest::header::HeaderMap::new();
     headers.insert("Content-Type", "application/json".parse().unwrap());
-    headers.insert("X-Shopify-Access-Token", shopify.api_key.parse().unwrap());
+    headers.insert("X-Shopify-Storefront-Access-Token", shopify.api_key.parse().unwrap());
 
     let req = match endpoint {
         ShopifyAPIRestType::Get(url, params) => client

@@ -66,11 +66,8 @@ impl Shopify {
             shop_domain
         };
 
-        let query_url = format!(
-            "https://{}/admin/api/{}/graphql.json",
-            shop_domain, api_version
-        );
-        let rest_url = format!("https://{}/admin/api/{}/", shop_domain, api_version);
+        let query_url = format!("https://{}/api/{}/graphql.json", shop_domain, api_version);
+        let rest_url = format!("https://{}/api/{}/", shop_domain, api_version);
 
         Shopify {
             api_version,
